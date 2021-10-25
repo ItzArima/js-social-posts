@@ -3,7 +3,7 @@ const posts = [
         id : 1,
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
         immagine : 'https://picsum.photos/800/400',
-        authorName : "Phil" + "Mangione",
+        authorName : "Phil Mangione",
         authorAvatar : 'https://picsum.photos/200',      
         likes : 60,
         date : "",
@@ -13,8 +13,8 @@ const posts = [
         id : 2,
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
         immagine : 'https://picsum.photos/800/400',
-        authorName : ["Sofia"+"Perlari"],
-        authorAvatar : 'https://picsum.photos/200',      
+        authorName : "Sofia Perlari",
+  
         likes : 60,
         date : "",
         dateAgo : ""
@@ -23,7 +23,7 @@ const posts = [
         id : 3,
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
         immagine : 'https://picsum.photos/800/400',
-        authorName : ["Ros"+"tik"],
+        authorName : "Ros Ros",
         authorAvatar : 'https://picsum.photos/200',      
         likes : 60,
         date : "",
@@ -59,6 +59,7 @@ for(let i=0;i<posts.length;i++){
     console.log(ago);
     posts[i].dateAgo = ago + " Months ago";
 } 
+
 
 
 var liked = [];
@@ -169,3 +170,37 @@ document.getElementById("like2").addEventListener('click',function(){
     console.log(liked);
 })
 
+for(let i=0;i<posts.length;i++){
+    if (posts[i].hasOwnProperty('authorAvatar') == false){
+        avatar = document.getElementsByClassName("avatar");
+        avatar[i].id = "remove";
+        postHeader = document.getElementsByClassName("post-header");
+        postHeader[i].id = "custom-avatar"
+        divCreate = document.createElement('div');
+        divCreate.classList.add("avatar","custom");
+        document.getElementById("custom-avatar").insertBefore(divCreate,postHeader[i].firstChild);
+        h1create = document.createElement('h1');
+        h1create.classList.add("alpha-avatar")
+        divCreate.append(h1create);
+        var toUpper = posts[i].authorName;
+        upper = uppercase(toUpper);
+        console.log(upper);
+        for(let i=0;i<upper.length;i++){
+            h1create.innerHTML += upper[i];
+        }
+    }
+}
+
+function uppercase(name){
+    upper =[]
+    for(let i=0;i<name.length;i++){
+        if(name.charAt(i) == name.charAt(i).toUpperCase()){
+            if(name.charAt(i) !== " "){
+                var toPush = name.charAt(i);
+                console.log(toPush);
+                upper.push(toPush);
+            }    
+        }
+    }
+    return upper;
+}

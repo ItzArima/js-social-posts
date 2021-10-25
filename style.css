@@ -20,6 +20,7 @@ i{
     border-radius: 50%;
     float: left;
     margin-right: 1.5rem;
+    background-color: chartreuse;
 }
 
 .post{
@@ -60,4 +61,18 @@ h1{
 
 .name{
     font-weight: 900;
+}
+
+#remove{
+    display: none;
+}
+
+.custom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.like:hover{
+    cursor: pointer;
 }
