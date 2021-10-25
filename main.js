@@ -2,9 +2,9 @@ const posts = [
     {
         id : 1,
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
-        immagine : 'https://picsum.photos/800/400',
+        immagine : 'https://picsum.photos/800/402',
         authorName : "Phil Mangione",
-        authorAvatar : 'https://picsum.photos/200',      
+        authorAvatar : 'https://picsum.photos/201',      
         likes : 60,
         date : "",
         dateAgo : ""
@@ -12,7 +12,7 @@ const posts = [
     {
         id : 2,
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
-        immagine : 'https://picsum.photos/800/400',
+        immagine : 'https://picsum.photos/800/401',
         authorName : "Sofia Perlari",
   
         likes : 60,
@@ -172,18 +172,18 @@ document.getElementById("like2").addEventListener('click',function(){
 
 for(let i=0;i<posts.length;i++){
     if (posts[i].hasOwnProperty('authorAvatar') == false){
-        avatar = document.getElementsByClassName("avatar");
+        var avatar = document.getElementsByClassName("avatar");
         avatar[i].id = "remove";
-        postHeader = document.getElementsByClassName("post-header");
+        var postHeader = document.getElementsByClassName("post-header");
         postHeader[i].id = "custom-avatar"
-        divCreate = document.createElement('div');
+        var divCreate = document.createElement('div');
         divCreate.classList.add("avatar","custom");
         document.getElementById("custom-avatar").insertBefore(divCreate,postHeader[i].firstChild);
-        h1create = document.createElement('h1');
+        var h1create = document.createElement('h1');
         h1create.classList.add("alpha-avatar")
         divCreate.append(h1create);
         var toUpper = posts[i].authorName;
-        upper = uppercase(toUpper);
+        var upper = uppercase(toUpper);
         console.log(upper);
         for(let i=0;i<upper.length;i++){
             h1create.innerHTML += upper[i];
@@ -192,7 +192,7 @@ for(let i=0;i<posts.length;i++){
 }
 
 function uppercase(name){
-    upper =[]
+    let upper =[]
     for(let i=0;i<name.length;i++){
         if(name.charAt(i) == name.charAt(i).toUpperCase()){
             if(name.charAt(i) !== " "){
