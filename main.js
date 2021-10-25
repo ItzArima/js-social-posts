@@ -3,50 +3,63 @@ const posts = [
         id : 1,
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
         immagine : 'https://picsum.photos/800/400',
-        authorName : "Phil Mangione",
+        authorName : "Phil" + "Mangione",
         authorAvatar : 'https://picsum.photos/200',      
         likes : 60,
-        date : "4 mesi fa"
+        date : "4 mesi fa",
+        dateAgo : ""
     },
     {
         id : 2,
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
         immagine : 'https://picsum.photos/800/400',
-        authorName : "Sofia Perlari",
+        authorName : ["Sofia"+"Perlari"],
         authorAvatar : 'https://picsum.photos/200',      
         likes : 60,
-        date : "2 mesi fa"
+        date : "2 mesi fa",
+        dateAgo : ""
     },
     {
         id : 3,
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
         immagine : 'https://picsum.photos/800/400',
-        authorName : "Ros",
+        authorName : ["Ros"+"tik"],
         authorAvatar : 'https://picsum.photos/200',      
         likes : 60,
-        date : "oggi"
+        date : "oggi",
+        dateAgo : ""
     }
 ];
 
-var date = new Date();
-var getdate = date.getDate();
-date.setDate(getdate)
-console.log(date);
-var postdate = new Date();
-var postgetdate = postdate.getDate() - 90;     //dove 90 corrisponde a quanti giorni fa e stato postato il post
-postdate.setDate(postgetdate);
-console.log(postdate);
-ago = date-postdate;     //millisecondi
-ago = ago/1000;         //secondi
-ago = ago/3600;         //ore
-ago = ago/24;           //giorni
-ago = ago/30;           //mesi
-console.log(ago);   
 
-for (let i=0;i<posts.length;i++){
-    posts[i].date = ago + " Months ago";
+date1 = new Date();
+date1.setFullYear(2021,3,14);
+posts[0].date = date1;
+console.log("data 1        "+posts[0].date);
 
-}
+date2 = new Date();
+date2.setFullYear(2021,4,11);
+posts[1].date = date2;
+console.log("data 2        "+posts[1].date);
+
+date3 = new Date();
+date3.setFullYear(2021,1,4);
+posts[2].date = date3;
+console.log("data 3        "+posts[2].date);
+
+
+dateNow = new Date();
+dateNow.getDate();
+console.log(dateNow);
+for(let i=0;i<posts.length;i++){
+    ago = dateNow - posts[i].date;
+    console.log(ago);
+    ago = ((((ago/1000)/3600))/24)/30;
+    ago = Math.floor(ago);
+    console.log(ago);
+    posts[i].dateAgo = ago + " Months ago";
+} 
+
 
 var liked = [];
 var container = document.querySelector(".container");
@@ -74,7 +87,7 @@ for(let i = 0;i<posts.length;i++){
     datep.classList.add("date");
     postHeaderSelector[i].append(datep);
     var date = document.getElementsByClassName("date");
-    date[i].append(posts[i].date);
+    date[i].append(posts[i].dateAgo);
     var contentp = document.createElement('p');
     contentp.classList.add("content");
     post[i].append(contentp);
@@ -156,12 +169,3 @@ document.getElementById("like2").addEventListener('click',function(){
     console.log(liked);
 })
 
-
-
-
-var date = document.getElementsByClassName("date")
-for (let i=0;i<posts.length;i++){
-    delete posts[i].date;
-    date[i].innerhtml = "ciao";
-    console.log(date[i]);
-}
