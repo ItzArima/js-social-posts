@@ -91,35 +91,46 @@ for(let i = 0;i<posts.length;i++){
     counterSelector = document.getElementsByClassName("counter");
     counterSelector[i].append(counterp);
     let counterNumber = 0; 
-    let counterText = "Piace a "+ counterNumber + " persone";
+    let counterText = "Piace a <strong>"+ counterNumber + "</strong> persone";
     let counterStamp = document.getElementsByClassName("counter-text");
-    counterStamp[i].append(counterText); 
+    counterStamp[i].innerHTML = counterText; 
 }    
 
 var counter1 = 0;
+
 var counter2 = 0;
 var counter3 = 0;
 
 document.getElementById("like0").addEventListener('click',function(){
     counter1 ++;
     let counterText = document.getElementsByClassName("counter-text");
-    counterInsert = "Piace a "+ counter1 + " persone";
+    counterInsert = "Piace a <strong>"+ counter1 + "</strong> persone";
     counterText[0].innerHTML = counterInsert;
-
+    if(liked.includes(posts[0].id) == false){
+        liked.push(posts[0].id)
+    }
+    console.log(liked);
 })
 
 document.getElementById("like1").addEventListener('click',function(){
     counter2 ++;
     let counterText = document.getElementsByClassName("counter-text");
-    counterInsert = "Piace a "+ counter2 + " persone";
+    counterInsert = "Piace a <strong>"+ counter2 + "</strong> persone";
     counterText[1].innerHTML = counterInsert;
+    if(liked.includes(posts[1].id) == false){
+        liked.push(posts[1].id)
+    }
+    console.log(liked);
 
 })
 
 document.getElementById("like2").addEventListener('click',function(){
     counter3 ++;
     let counterText = document.getElementsByClassName("counter-text");
-    counterInsert = "Piace a "+ counter3 + " persone";
+    counterInsert = "Piace a <strong>"+ counter3 + "</strong> persone";
     counterText[2].innerHTML = counterInsert;
-
+    if(liked.includes(posts[2].id) == false){
+        liked.push(posts[2].id)
+    }
+    console.log(liked);
 })
