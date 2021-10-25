@@ -6,7 +6,7 @@ const posts = [
         authorName : "Phil" + "Mangione",
         authorAvatar : 'https://picsum.photos/200',      
         likes : 60,
-        date : "4 mesi fa",
+        date : "",
         dateAgo : ""
     },
     {
@@ -16,7 +16,7 @@ const posts = [
         authorName : ["Sofia"+"Perlari"],
         authorAvatar : 'https://picsum.photos/200',      
         likes : 60,
-        date : "2 mesi fa",
+        date : "",
         dateAgo : ""
     },
     {
@@ -26,7 +26,7 @@ const posts = [
         authorName : ["Ros"+"tik"],
         authorAvatar : 'https://picsum.photos/200',      
         likes : 60,
-        date : "oggi",
+        date : "",
         dateAgo : ""
     }
 ];
