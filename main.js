@@ -113,7 +113,7 @@ for(let i = 0;i<posts.length;i++){
     likeSelector[i].id = "like"+[i];
     var likeIconText = document.createElement('p');
     likeIconText.classList.add("like-text");
-    likeSelector[i].append(likeIconText)
+    likeSelector[i].append(likeIconText);
     likeTextSelector = document.getElementsByClassName("like-text");
     var miPiace = "Mi Piace";
     likeTextSelector[i].append(miPiace);
@@ -142,7 +142,7 @@ document.getElementById("like0").addEventListener('click',function(){
     counterInsert = "Piace a <strong>"+ counter1 + "</strong> persone";
     counterText[0].innerHTML = counterInsert;
     if(liked.includes(posts[0].id) == false){
-        liked.push(posts[0].id)
+        liked.push(posts[0].id);
     }
     console.log(liked);
 })
@@ -153,7 +153,7 @@ document.getElementById("like1").addEventListener('click',function(){
     counterInsert = "Piace a <strong>"+ counter2 + "</strong> persone";
     counterText[1].innerHTML = counterInsert;
     if(liked.includes(posts[1].id) == false){
-        liked.push(posts[1].id)
+        liked.push(posts[1].id);
     }
     console.log(liked);
 
@@ -165,7 +165,7 @@ document.getElementById("like2").addEventListener('click',function(){
     counterInsert = "Piace a <strong>"+ counter3 + "</strong> persone";
     counterText[2].innerHTML = counterInsert;
     if(liked.includes(posts[2].id) == false){
-        liked.push(posts[2].id)
+        liked.push(posts[2].id);
     }
     console.log(liked);
 })
@@ -175,12 +175,12 @@ for(let i=0;i<posts.length;i++){
         var avatar = document.getElementsByClassName("avatar");
         avatar[i].id = "remove";
         var postHeader = document.getElementsByClassName("post-header");
-        postHeader[i].id = "custom-avatar"
+        postHeader[i].id = "custom-avatar";
         var divCreate = document.createElement('div');
         divCreate.classList.add("avatar","custom");
         document.getElementById("custom-avatar").insertBefore(divCreate,postHeader[i].firstChild);
         var h1create = document.createElement('h1');
-        h1create.classList.add("alpha-avatar")
+        h1create.classList.add("alpha-avatar");
         divCreate.append(h1create);
         var toUpper = posts[i].authorName;
         var upper = uppercase(toUpper);
@@ -192,7 +192,7 @@ for(let i=0;i<posts.length;i++){
 }
 
 function uppercase(name){
-    let upper =[]
+    let upper =[];
     for(let i=0;i<name.length;i++){
         if(name.charAt(i) == name.charAt(i).toUpperCase()){
             if(name.charAt(i) !== " "){
