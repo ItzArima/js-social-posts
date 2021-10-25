@@ -24,7 +24,7 @@ const posts = [
         contenuto : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed nihil vitae alias natus repellendus facere id repudiandae, ex, reprehenderit suscipit omnis optio rerum saepe, illum dolores maxime. Quo, quos delectus?',
         immagine : 'https://picsum.photos/800/400',
         authorName : "Ros Ros",
-        authorAvatar : 'https://picsum.photos/200',      
+     
         likes : 60,
         date : "",
         dateAgo : ""
@@ -173,12 +173,14 @@ document.getElementById("like2").addEventListener('click',function(){
 for(let i=0;i<posts.length;i++){
     if (posts[i].hasOwnProperty('authorAvatar') == false){
         var avatar = document.getElementsByClassName("avatar");
-        avatar[i].id = "remove";
+        avatar[i].remove();
         var postHeader = document.getElementsByClassName("post-header");
-        postHeader[i].id = "custom-avatar";
+        postHeader[i].id = "custom-avatar"+i;
         var divCreate = document.createElement('div');
         divCreate.classList.add("avatar","custom");
-        document.getElementById("custom-avatar").insertBefore(divCreate,postHeader[i].firstChild);
+        divCreate.id = "bg"+i;
+        document.getElementById("custom-avatar"+i).insertBefore(divCreate,postHeader[i].firstChild);
+        document.getElementById("bg"+i).style.backgroundColor = getRandomColor();
         var h1create = document.createElement('h1');
         h1create.classList.add("alpha-avatar");
         divCreate.append(h1create);
@@ -204,3 +206,13 @@ function uppercase(name){
     }
     return upper;
 }
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
