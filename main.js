@@ -28,6 +28,26 @@ const posts = [
     }
 ];
 
+var date = new Date();
+var getdate = date.getDate();
+date.setDate(getdate)
+console.log(date);
+var postdate = new Date();
+var postgetdate = postdate.getDate() - 90;     //dove 90 corrisponde a quanti giorni fa e stato postato il post
+postdate.setDate(postgetdate);
+console.log(postdate);
+ago = date-postdate;     //millisecondi
+ago = ago/1000;         //secondi
+ago = ago/3600;         //ore
+ago = ago/24;           //giorni
+ago = ago/30;           //mesi
+console.log(ago);   
+
+for (let i=0;i<posts.length;i++){
+    posts[i].date = ago + " Months ago";
+
+}
+
 var liked = [];
 var container = document.querySelector(".container");
 
@@ -94,6 +114,7 @@ for(let i = 0;i<posts.length;i++){
     let counterText = "Piace a <strong>"+ counterNumber + "</strong> persone";
     let counterStamp = document.getElementsByClassName("counter-text");
     counterStamp[i].innerHTML = counterText; 
+    
 }    
 
 var counter1 = 0;
@@ -134,3 +155,13 @@ document.getElementById("like2").addEventListener('click',function(){
     }
     console.log(liked);
 })
+
+
+
+
+var date = document.getElementsByClassName("date")
+for (let i=0;i<posts.length;i++){
+    delete posts[i].date;
+    date[i].innerhtml = "ciao";
+    console.log(date[i]);
+}
